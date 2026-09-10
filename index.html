@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ポケモンえいごクイズ - ようしょく＆イーブイ</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- ポップな丸ゴシックフォントを読み込み -->
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="app">
+  <!-- ===============================
+       ルーム画面（ポケモンのお部屋）
+  ================================ -->
+  <div id="room-view" class="view active">
+    <header class="app-header">
+      <h1 id="main-title">えいごクイズ<br><span>ようしょく ＆ イーブイ</span></h1>
+    </header>
+
+    <div class="partner-stage">
+      <div id="effects-layer"></div>
+      <img id="partner-image" src="" alt="パートナー">
+      <div id="eating-msg" class="eating-msg">もぐもぐ♪</div>
+      <h2 id="partner-name">読み込み中...</h2>
+    </div>
+
+    <div class="status-board">
+      <div class="exp-header">
+        <span class="exp-label">なかよし度</span>
+        <span class="exp-value"><span id="exp-text">0</span>%</span>
+      </div>
+      <div class="exp-bar-bg">
+        <div id="exp-bar" class="exp-bar-fill"></div>
+      </div>
+    </div>
+
+    <div class="food-section">
+      <div class="food-header">
+        <h3>ごはんボックス <span>🔑 もっているカギ: <span id="key-count">0</span></span></h3>
+        <p>4問せいかいで、ごはんが1つひらくよ！</p>
+      </div>
+      <div id="food-list" class="food-list">
+        <!-- JSでごはんカードを生成 -->
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button id="start-quiz-btn" class="btn btn-primary btn-large">クイズをする (4もん)</button>
+      <button id="reset-evo-btn" class="btn btn-danger btn-large hidden">イーブイにもどる🔄</button>
+    </div>
+  </div>
+
+  <!-- ===============================
+       クイズ画面
+  ================================ -->
+  <div id="quiz-view" class="view hidden">
+    <div class="quiz-header-bar">
+      <span id="quiz-progress-text" class="badge">だい 1 もん (1/4)</span>
+    </div>
+    <div id="quiz-content" class="quiz-card">
+      <!-- JSでクイズの中身を生成 -->
+    </div>
+  </div>
+</div>
+
+<!-- フィードバック演出 (正解/不正解) -->
+<div id="feedback-overlay" class="overlay hidden">
+  <div class="feedback-card">
+    <div id="feedback-icon" class="feedback-icon"></div>
+    <div id="feedback-text" class="feedback-text"></div>
+  </div>
+</div>
+
+<!-- 進化演出 -->
+<div id="evolve-overlay" class="overlay hidden">
+  <div class="ray-light"></div>
+  <div class="evolve-sparkle">✨</div>
+  <img id="evolve-image" src="" alt="しんか！">
+  <h2 id="evolve-text" class="evolve-text">おめでとう！<br>しんかした！</h2>
+  <button id="close-evolve-btn" class="btn btn-primary btn-large">いっしょにあそぶ！</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
